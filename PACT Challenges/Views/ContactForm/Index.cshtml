@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Contact Form";
+}
+
+@*@model PACT_Challenges.Models.Contact*@
+
+<link href="~/Styles/contactform.min.css" rel="stylesheet" type="text/css" />
+<div class="form">
+    <form id="contactForm" data-role="validator" novalidate="novalidate" data-bind="events: {submit: submit}">
+        <h2>Contact Form</h2>
+
+        <ul id="fieldlist">
+            <li>
+                <label for="FirstName">First Name:</label>
+                <input type="text" class="k-textbox" name="FirstName" id="FirstName" required="required" min="3" max="25"
+                       pattern="[,a-zA-Z0-9\s]{3,25}$" data-bind="value: contactForm.FirstName" />
+            </li>
+            <li>
+                <label for="LastName">Last Name:</label>
+                <input type="text" class="k-textbox" name="LastName" id="LastName" required="required" min="3" max="25"
+                       pattern="[,a-zA-Z0-9\s]{3,25}$" data-bind="value: contactForm.LastName" />
+            </li>
+            <li>
+                <label for="Email">Email:</label>
+                <input type="email" class="k-textbox" name="Email" id="Email" required="required"
+                       data-bind="value: contactForm.Email" />
+            </li>
+            <li>
+                <label for="Company">Company:</label>
+                <input type="text" class="k-textbox" name="Company" id="Company" min="3" max="50"
+                       pattern="[,a-zA-Z0-9\s]{3,50}$" data-bind="value: contactForm.Company" />
+            </li>
+            <li>
+                <label for="PhoneNumber">Phone number:</label>
+                <input type="text" data-role="maskedtextbox" class="k-textbox" name="PhoneNumber" id="PhoneNumber" pattern="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}"
+                       data-bind="value: contactForm.PhoneNumber, events: { change: maskStrip }" data-mask="(999) 000-0000" />
+            </li>
+            <li>
+                <input type="hidden" id="check" name="check" value="" placeholder="If this field is visible, please leave blank."/>
+            </li>
+            <li class="actions">
+                <button type="button" data-role="button" data-sprite-css-class="k-icon k-i-tick" data-bind="click: submit">Submit</button>
+            </li>
+        </ul>
+    </form>
+    <div id="success">
+        <img src="~/Images/Checkmark-green-lite.png" />
+        <span>
+            Your contact information has been successfully submitted.
+        </span>
+    </div>
+
+</div>
+@section scripts {
+    @Scripts.Render("~/Scripts/ContactForm/contactform.js")
+    }

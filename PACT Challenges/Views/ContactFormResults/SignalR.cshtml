@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Contact Form Results";
+}
+
+<h2>Contact Form Results using SignalR</h2>
+
+<link href="~/Styles/contactformresults.min.css" rel="stylesheet" type="text/css" />
+<div id="contactFormResults" class="k-content">
+    <span id="notification"></span>
+    <div id="grid"></div>
+</div>
+@section scripts {
+    @Scripts.Render("~/Scripts/ContactFormResults/contactformresultssignalr.js",
+                    "~/Scripts/jquery.signalR-2.2.0.min.js",
+                    "~/signalr/hubs"
+    )
+}

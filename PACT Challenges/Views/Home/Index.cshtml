@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section featured {
+    <div class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Christon's Challenges</h1>
+                <h2>Welcome</h2>
+            </hgroup>
+            <p>
+
+            </p>
+        </div>
+    </div>
+}
+
+<h3>Challenge Listing</h3>
+<br />
+
+@(Html.Kendo().PanelBar()
+    .Name("IntroPanelBar")
+    .Items(items =>
+    {
+        items.Add()
+            .Text("#1 Contact Form using Kendo UI")
+            .Selected(true)
+            .Expanded(false)
+            .Content(@<text>
+                <p style="padding:0 1em">
+                    <a href="~//ContactForm">Challenge #1</a>
+                    <br /> <br />
+                    Contact Form using Kendo UI Web. The challenge must contain First Name,
+                    Last Name, Email, Company, and Phone Number fields with a hidden date. This form
+                    must be Anti-Spam. First and Last name should not accept any special characters and
+                    should be less than 50 character long. Company should be no more than 50 characters.
+                    On success it will clear the form and display a message.
+                </p>
+            </text>);
+        items.Add()
+                .Text("#2 & #3 Contact Form Results")
+                .Selected(true)
+                .Expanded(false)
+                .Content(@<text>
+                    <p style="padding:0 1em">
+                        <a href="~//ContactFormResults">Challenge #2 and #3</a>
+                        <br /> <br />
+                        #2 Create a grid that displays the contacts created in challenge #1 through using kendo grid.
+                        Use the kendo datasource to retrieve data from an MVC Controller Action
+                        <br /> <br />
+                        #3 Add functionality to the grid. Allow the user to delete and edit contacts from the grid.
+                        Use the datasource object for this while communicating with an MVC Controller Action.
+                    </p>
+                </text>);
+        items.Add()
+            .Text("#4 SignalR Chat")
+            .Selected(true)
+            .Expanded(false)
+            .Content(@<text>
+                    <p style="padding: 0 1em">
+                        <a href="~//Chat">Challenge #4</a>
+                        <br /> <br />
+                        #4 Get two browsers to talk to each other using signalr
+                    </p>
+                </text>);
+        items.Add()
+            .Text("#5 Use signalR for task #3's Changes")
+            .Selected(true)
+            .Expanded(true)
+            .Content(@<text>
+                    <p style="padding: 0 1em">
+                        <a href="~//ContactFormResults/SignalR">Challenge #5</a>
+                        <br /> <br />
+                        #5 Take the signalR from step #4 and go one step further by using it in conjunction with task #3.
+                    </p>
+                </text>);
+    })
+)
